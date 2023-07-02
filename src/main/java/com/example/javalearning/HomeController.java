@@ -9,9 +9,15 @@ import org.springframework.http.ResponseEntity;
 public class HomeController {
 
     @GetMapping("/")
-    public String home(Model model) {
+    public String index(Model model) {
         ResponseEntity<String> responseEntity = Main.fetchWeatherData();
-        model.addAttribute("weatherData", responseEntity.getBody());
-        return "home";
+        if (responseEntity.getStatusCode().is2xxSuccessful()) {
+            String weatherData = responseEntity.getBody();
+            model.addAttribute("weatherData", weatherData);
+        } else {
+            String errorMessage = "Failed to fetch weather data";
+            model.addAttribute("errorMessage", errorMessage);
+        }
+        return "index";
     }
 }

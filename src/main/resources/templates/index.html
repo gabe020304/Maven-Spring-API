@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Data</title>
+    <style>
+        .data-bubble {
+            border: 1px solid grey;
+            padding: 10px;
+            max-height: 300px;
+            max-width: 500px;
+            margin: 0 auto;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+<h1 style="text-align: center">Weather Data:</h1>
+<div class="data-bubble">
+    <pre th:text="${weatherData}"></pre>
+</div>
+<p th:if="${errorMessage}" th:text="${errorMessage}"></p>
+</body>
+</html>
