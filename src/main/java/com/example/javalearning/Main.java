@@ -20,7 +20,7 @@ public class Main {
 
     private static ResponseEntity<String> getWeatherData() {
         RestTemplate restTemplate = new RestTemplate();
-        String apiKey = "98b88358e13a619f030a424cfc92672b";
+        String apiKey = "API";
         String apiUrl = "https://api.openweathermap.org/data/2.5/weather?zip=84107,us&appid=" + apiKey;
         return restTemplate.getForEntity(apiUrl, String.class);
     }
